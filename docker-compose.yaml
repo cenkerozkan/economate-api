@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: cenker123
+      POSTGRES_DB: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "54321:5432"
+    restart: always
+
+  fastapi:
+    build: .
+    container_name: fastapi_app
+    command: uvicorn api:app --reload --port=8010 --host=0.0.0.0
+    volumes:
+      - ./api:/app/api  # Mount your FastAPI code directory into the container
+    ports:
+      - "8010:8010"  # Expose the port used by FastAPI
+    depends_on:
+      - postgres  # Ensure that the PostgreSQL container is started before FastAPI
+
+volumes:
+  postgres_data:
