@@ -226,19 +226,3 @@ def get_all_bills_with_products(user_email):
 
     except Exception as e:
         print(f"An error occurred: {e}")
-
-
-
-def get_total_bills():
-    pass
-
-
-
-#get_total_bills()
-# user_exist("user1@example.com")
-# show_users()
-# #delete_all_bills()
-# show_bills()
-# show_products()
-# pprint(get_all_bills_with_products("b@b.com"))
-# #create_bill("a",prod_test)

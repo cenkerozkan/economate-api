@@ -6,7 +6,7 @@ import google.generativeai as genai
 
 
 # CONSTANTS
-API_KEY = "AIzaSyDj5_DtF3dAcBCM5A_qIF-U8seTFWXyetg" # Gemini api key created for my account.
+API_KEY = "x" # Gemini api key created for my account.
              # Switch to economate account later.
 
 # This is basically a Gemini python
@@ -36,12 +36,3 @@ class GeminiController:
         print(json.loads(response.text))
         print(response.text)
         print(type(response))
-
-
-
-
-
-inst = GeminiController()
-inst.create_controller()
-inst.gemini_ocr("deneme")
-print(type(inst))
